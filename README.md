@@ -1,2 +1,2 @@
-# js-sdk
-JS client to opfront api
+# opfront-js-sdk
+JS SDK to simplify interaction with api

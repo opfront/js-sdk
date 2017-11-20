@@ -1,0 +1,16 @@
+box: node
+
+build:
+  steps:
+    - npm-install
+    - npm-test
+
+deploy:
+  steps:
+    - script:
+      name: build production bundle
+      code: |
+        npm run build
+
+    - turistforeningen/npm-publish@2.0.2:
+      NPM_TOKEN: $NPM_TOKEN
