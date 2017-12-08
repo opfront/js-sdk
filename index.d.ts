@@ -96,6 +96,28 @@ interface IUserRessource extends IRessource {
   me(callback: Callback): void;
 }
 
+interface IStoreRessource extends IRessource {
+  /**
+   * Send a store transfer link the an email
+   */
+  transfer(storeId: string, email: string): Promise<object>;
+
+  /**
+   * Send a store transfer link the an email
+   */
+  transfer(storeId: string, email: string, callback: Callback): void;
+
+  /**
+   * Accept or decline a store transfer
+   */
+  acceptTransfer(accept: boolean, token: string): Promise<object>;
+
+  /**
+   * Accept or decline a store transfer
+   */
+  acceptTransfer(accept: boolean, token: string, callback: Callback): void;
+}
+
 interface IApiVersion {
   /**
    * Get the api version
@@ -150,7 +172,7 @@ export function configureUrl(url: string): void;
 export const Spectacle: IRessource;
 export const Product: IRessource;
 export const Order: IRessource;
-export const Store: IRessource;
+export const Store: IStoreRessource;
 export const Banner: IRessource;
 export const Auth: IAuthRessource;
 export const User: IUserRessource;
